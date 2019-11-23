@@ -21,46 +21,62 @@
       </div>
 
       <div id="field-button" class="field">
-          <button id="predictor">Predict Number!</button>
+          <button id="predictor" disabled="disabled">Predict Number!</button>
       </div>
     </form>
 
     <img id="my_img" alt="Uploaded image" width="112" height="112" src="/static/default-mushroom.png" />
 
     <p id="message">
-      Quickly target market-driven infrastructures rather than technically sound imperatives. Dramatically reinvent multidisciplinary collaboration and idea-sharing through installed base process improvements.
+
     </p>
 
   </div>
     <script>
+      const $imageUpload = document.querySelector("#image_upload");
+      const $image = document.querySelector('#my_img');
+      const $button = document.querySelector("#predictor");
+      const $message = document.querySelector("#message");
 
-    document.querySelector("#image_upload").addEventListener("change", (e)=>{
-        // https://stackoverflow.com/a/27002935/818687
-        document.querySelector('#my_img').src = window.URL.createObjectURL(e.target.files[0])
-    })
+      // Update the image with the upload image.
+      $imageUpload.addEventListener("change", (e)=>{
+          // https://stackoverflow.com/a/27002935/818687
+          $image.src = window.URL.createObjectURL(e.target.files[0])
 
-    document.querySelector("#predictor").addEventListener("click", ()=>{
-        // Get the values to send to the API
+          // Enable the submit button.
+          $button.disabled = false;
+      })
 
-        // Create URL
-        var url = new URL("/mnist", window.location.origin)
-        var data = new FormData()
-        data.append('file', document.querySelector("#image_upload").files[0])
-        // Get API response
-        fetch(url, {
-            method: "POST",
-            body: data
-        }).then((response)=>{
-            console.log(response)
-            return response.json()
-        }).then((res)=>{
-            console.log(res)
-            // Update the message
-            document.querySelector("#message").innerText = res['message']
-        })
-    })
+      $button.addEventListener("click", ()=>{
+          // Prevent the form from submitting.
+          event.preventDefault();
 
-</script>
+          // Get the values to send to the API
+
+          // Create URL
+          var url = new URL("/mnist", window.location.origin)
+          var data = new FormData()
+          data.append('file', $imageUpload.files[0])
+
+          // Get API response
+          try {
+            fetch(url, {
+                method: "POST",
+                body: data
+            }).then((response)=>{
+                console.log(response)
+                return response.json()
+            }).then((response)=>{
+                console.log(response)
+                // Update the message
+                $message.innerText = response['message']
+            });
+          }
+          catch (error) {
+            console.error(error);
+          }
+      })
+    </script>
 
 </body>
 </html>

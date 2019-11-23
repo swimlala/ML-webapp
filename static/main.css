@@ -1,6 +1,7 @@
 /* Define some variables for reuse. */
 :root {
   --color-primary: purple;
+  --color-disabled: #999;
 }
 
 body {
@@ -10,6 +11,7 @@ body {
 
 h1 {
   font-size: 4em;
+  color: var(--color-primary);
 }
 
 form {
@@ -55,4 +57,12 @@ button {
 button:hover, button:focus {
   background-color: var(--color-primary);
   color: white;
+}
+
+button[disabled="disabled"],
+button[disabled="disabled"]:hover,
+button[disabled="disabled"]:focus {
+  border-color: var(--color-disabled);
+  color: var(--color-disabled);
+  background-color: white;
 }
