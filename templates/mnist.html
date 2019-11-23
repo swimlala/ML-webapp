@@ -6,36 +6,42 @@
     <title>Digit Predictor</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <!-- <script src="main.js"></script> -->
 </head>
 <body>
+  <div id="page-wrapper">
     <h1>Digit Predictor</h1>
 
-    <div>
-        <label for="image_upload">Uploaded image</label>
-        <input type="file" id="image_upload">
-    </div>
+    <form>
+      <div id="field-file-upload" class="field">
+          <label for="image_upload">Upload an Image</label>
+          <input type="file" id="image_upload">
+      </div>
 
-    <div>
-        <button id="predictor">Predict Number!</button>
-    </div>
+      <div id="field-button" class="field">
+          <button id="predictor">Predict Number!</button>
+      </div>
+    </form>
 
     <img id="my_img" alt="Uploaded image" width="112" height="112" />
 
-    
-    <p id="message"></p>
-    
+    <p id="message">
+      Quickly target market-driven infrastructures rather than technically sound imperatives. Dramatically reinvent multidisciplinary collaboration and idea-sharing through installed base process improvements.
+    </p>
+
+  </div>
     <script>
 
     document.querySelector("#image_upload").addEventListener("change", (e)=>{
-        // https://stackoverflow.com/a/27002935/818687 
+        // https://stackoverflow.com/a/27002935/818687
         document.querySelector('#my_img').src = window.URL.createObjectURL(e.target.files[0])
     })
 
     document.querySelector("#predictor").addEventListener("click", ()=>{
         // Get the values to send to the API
-        
+
         // Create URL
         var url = new URL("/mnist", window.location.origin)
         var data = new FormData()
@@ -55,6 +61,6 @@
     })
 
 </script>
-    
+
 </body>
 </html>

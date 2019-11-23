@@ -1,0 +1,55 @@
+/* Define some variables for reuse. */
+:root {
+  --color-primary: purple;
+}
+
+body {
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 4em;
+}
+
+form {
+  display: inline-block;
+  vertical-align: top;
+}
+
+#my_image {
+  display: inline-block;
+  vertical-align: top;
+}
+
+#page-wrapper {
+  margin: 2em;
+}
+
+#message {
+  margin-top: 1em;
+  color: #666;
+  font-style: italic;
+}
+
+.field {
+  padding: 1em 0;
+}
+
+.field label {
+  display: block;
+  font-weight: bold;
+}
+
+button {
+  border: 1px solid var(--color-primary);
+  border-radius: .25em;
+  color: var(--color-primary);
+  border-width: 2px;
+  padding: .5em 1em;
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover, button:focus {
+  background-color: var(--color-primary);
+  color: white;
+}
