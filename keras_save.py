@@ -43,7 +43,7 @@ model = Sequential(my_layers)
 
 model.compile(loss='categorical_crossentropy',optimizer="adam", metrics=['accuracy'])
 
-model.fit(x_train, y_train, epochs=10, validation_split=0.2)
+model.fit(x_train, y_train, epochs=1, validation_split=0.2)
 
 scores = model.evaluate(x_test, y_test)
 print(f"Our model is able to predict with an accuracy of {scores[1]:.2f}.")

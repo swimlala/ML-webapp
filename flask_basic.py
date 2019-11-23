@@ -27,9 +27,14 @@ def load_mnist_model():
     mnist_model = load_model(model_file)
     mnist_model._make_predict_function()
 
-@app.route("/")
-def hello():
-    return "Hello World!"
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+
+# @app.route("/")
+# def hello():
+#     return "Hello World!"
 
 @app.route("/json")
 def json_endpoint():
@@ -87,7 +92,7 @@ def predict_iris():
 @app.route("/iris-ui")
 def iris_ui():
     return render_template("iris.html")
-    
+
 
 @app.route("/mnist", methods=["POST"])
 def mnist_predict():
