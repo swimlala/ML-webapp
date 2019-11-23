@@ -5,7 +5,7 @@
 
 body {
   margin: 0 auto;
-  font-family: "Open Sans",sans-serif;
+  font-family: "Alef",sans-serif;
 }
 
 h1 {
@@ -19,6 +19,9 @@ form {
 
 #my_img {
   padding-top: 1em;
+  width: auto;
+  height: 100%;
+  max-height: 150px;
 }
 
 #page-wrapper {
