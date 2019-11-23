@@ -5,6 +5,7 @@
 
 body {
   margin: 0 auto;
+  font-family: "Open Sans",sans-serif;
 }
 
 h1 {
@@ -16,9 +17,8 @@ form {
   vertical-align: top;
 }
 
-#my_image {
-  display: inline-block;
-  vertical-align: top;
+#my_img {
+  padding-top: 1em;
 }
 
 #page-wrapper {
